@@ -1,0 +1,7 @@
+dict_tmp1={}
+dict_tmp2={}
+for i, res in enumerate(optimizer.res):
+    dict_tmp1[i] = {'iteration': int(i), 'mae': res['target']}
+    dict_tmp2[i] = res['params']
+df_optimizer = pd.DataFrame(dict_tmp1).transpose().merge(pd.DataFrame(dict_tmp2).transpose(), left_index=True, right_index=True)
+df_optimizer
